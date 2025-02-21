@@ -29,7 +29,7 @@
                 default: 'arcade',
                 arcade: {
                     gravity: { y: 250 },
-                    debug: false 
+                    debug: false //evita o aparecimento do contorno geométrico dos assets
                 }
             },
 
@@ -77,7 +77,7 @@
             alien = this.physics.add.sprite(larguraJogo/2, 0, 'player'); 
             alien.setCollideWorldBounds(true)
             alien.setBounce(0.2); //faz o alien "quicar" um pouco
-            alien.body.setAllowGravity(true); //garante que ele tenha gravidade
+            alien.body.setAllowGravity(true); //garante que o alien tenha gravidade
             // cria as setas do teclado para movimentar o alienígena
             teclado = this.input.keyboard.createCursorKeys(); 
 
@@ -89,7 +89,7 @@
             plataformas.push(this.physics.add.staticImage(200, 600, 'plataforma_tijolo2'));
             plataformas.push(this.physics.add.staticImage(500, 600, 'plataforma_tijolo3'));
 
-            //adicionando colisão para todas as plataformas
+            //adicionan colisão para todas as plataformas com o alien
             plataformas.forEach(plataforma => {
                 this.physics.add.collider(alien, plataforma);
             });
